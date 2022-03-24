@@ -1,0 +1,277 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXFileReference section */
+		3D33AF9A27E657F6007DAF60 /* VOIPCallRecorder.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = VOIPCallRecorder.plist; sourceTree = "<group>"; };
+		3D33AF9B27E657F6007DAF60 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		3D33AF9C27E657F6007DAF60 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		3D33AF9D27E657F6007DAF60 /* Main.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Main.x; sourceTree = "<group>"; };
+		3D33AF9E27E658F6007DAF60 /* Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		3D33AF9F27E658F6007DAF60 /* Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		3D33AFA027E65A38007DAF60 /* run.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
+		3D33AFA327E66B1A007DAF60 /* LockScreen.x */ = {isa = PBXFileReference; lastKnownFileType = text; path = LockScreen.x; sourceTree = "<group>"; };
+		3D33AFA427E66BBE007DAF60 /* LabelHack.x */ = {isa = PBXFileReference; lastKnownFileType = text; path = LabelHack.x; sourceTree = "<group>"; };
+		3D33AFA527E66BBE007DAF60 /* ViewControllerHack.x */ = {isa = PBXFileReference; lastKnownFileType = text; path = ViewControllerHack.x; sourceTree = "<group>"; };
+		3D33AFA627E66BBE007DAF60 /* AppNamesHack.x */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppNamesHack.x; sourceTree = "<group>"; };
+		3D33AFA727E66BBE007DAF60 /* AppLaunchHack.x */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppLaunchHack.x; sourceTree = "<group>"; };
+		3D33AFA827E66BBE007DAF60 /* StatusBar.x */ = {isa = PBXFileReference; lastKnownFileType = text; path = StatusBar.x; sourceTree = "<group>"; };
+		3D33AFA927E66BBE007DAF60 /* CallConfirm.x */ = {isa = PBXFileReference; lastKnownFileType = text; path = CallConfirm.x; sourceTree = "<group>"; };
+		3D33AFAB27E671B0007DAF60 /* Recorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recorder.m; sourceTree = "<group>"; };
+		3D33AFAC27E7C3BE007DAF60 /* AudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioRecorder.h; sourceTree = "<group>"; };
+		3D33AFAD27E7C3BE007DAF60 /* AudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3D33AF8F27E6570D007DAF60 = {
+			isa = PBXGroup;
+			children = (
+				3D33AFAA27E66C56007DAF60 /* Classes */,
+				3D33AF9D27E657F6007DAF60 /* Main.x */,
+				3D33AFA227E66ACE007DAF60 /* Tweaks */,
+				3D33AFA027E65A38007DAF60 /* run.sh */,
+				3D33AF9C27E657F6007DAF60 /* control */,
+				3D33AF9B27E657F6007DAF60 /* Makefile */,
+				3D33AF9A27E657F6007DAF60 /* VOIPCallRecorder.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		3D33AFA227E66ACE007DAF60 /* Tweaks */ = {
+			isa = PBXGroup;
+			children = (
+				3D33AFA727E66BBE007DAF60 /* AppLaunchHack.x */,
+				3D33AFA627E66BBE007DAF60 /* AppNamesHack.x */,
+				3D33AFA927E66BBE007DAF60 /* CallConfirm.x */,
+				3D33AFA427E66BBE007DAF60 /* LabelHack.x */,
+				3D33AFA827E66BBE007DAF60 /* StatusBar.x */,
+				3D33AFA527E66BBE007DAF60 /* ViewControllerHack.x */,
+				3D33AFA327E66B1A007DAF60 /* LockScreen.x */,
+			);
+			path = Tweaks;
+			sourceTree = "<group>";
+		};
+		3D33AFAA27E66C56007DAF60 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3D33AF9E27E658F6007DAF60 /* Helper.h */,
+				3D33AF9F27E658F6007DAF60 /* Helper.m */,
+				3D33AFAB27E671B0007DAF60 /* Recorder.m */,
+				3D33AFAC27E7C3BE007DAF60 /* AudioRecorder.h */,
+				3D33AFAD27E7C3BE007DAF60 /* AudioRecorder.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		3D33AF9427E6570D007DAF60 /* VOIPCallRecorder */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 3D33AF9727E6570D007DAF60 /* Build configuration list for PBXLegacyTarget "VOIPCallRecorder" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = VOIPCallRecorder;
+			passBuildSettingsInEnvironment = 1;
+			productName = VOIPCallRecorder;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		3D33AF9027E6570D007DAF60 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					3D33AF9427E6570D007DAF60 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 3D33AF9327E6570D007DAF60 /* Build configuration list for PBXProject "VOIPCallRecorder" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D33AF8F27E6570D007DAF60;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D33AF9427E6570D007DAF60 /* VOIPCallRecorder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		3D33AF9527E6570D007DAF60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		3D33AF9627E6570D007DAF60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+			};
+			name = Release;
+		};
+		3D33AF9827E6570D007DAF60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GWJNU6TTUL;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				THEOS = /Users/nitinkhurana1003361/theos;
+			};
+			name = Debug;
+		};
+		3D33AF9927E6570D007DAF60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GWJNU6TTUL;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				THEOS = /Users/nitinkhurana1003361/theos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D33AF9327E6570D007DAF60 /* Build configuration list for PBXProject "VOIPCallRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D33AF9527E6570D007DAF60 /* Debug */,
+				3D33AF9627E6570D007DAF60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D33AF9727E6570D007DAF60 /* Build configuration list for PBXLegacyTarget "VOIPCallRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D33AF9827E6570D007DAF60 /* Debug */,
+				3D33AF9927E6570D007DAF60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D33AF9027E6570D007DAF60 /* Project object */;
+}
