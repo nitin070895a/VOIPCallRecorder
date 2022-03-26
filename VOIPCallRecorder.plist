@@ -1,5 +1,7 @@
 {
-	Filter = {
-		 Executables = ("mediaserverd"); Mode = "Any";
-	};
+    Filter = {
+        Bundles = (
+            "net.whatsapp.WhatsApp",
+        );
+    };
 }

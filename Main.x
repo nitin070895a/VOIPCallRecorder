@@ -1,6 +1,8 @@
 #import <UIKit/UIKit.h>
 #import "Classes/Helper.h"
 #import "Classes/AudioRecorder.h"
+#import <CallKit/CXCallObserver.h>
+#import <CallKit/CXCall.h>
 
 @interface WACallViewController : UIViewController
 @end
@@ -10,28 +12,25 @@
 AudioRecorder* recorder;
 
 -(void)viewDidLoad {
-
-    %orig();
-    
-    [Helper addRectange: 100 color: nil view: self.view];
-    
+            
     recorder = [AudioRecorder alloc];
+    if ([recorder isRecording] == YES) {
+        %orig();
+        return;
+    }
+    
     [recorder prepare];
     [recorder record];
     
-    CTCallCenter *callCenter = [[CTCallCenter alloc] init];
-    [callCenter setCallEventHandler:^(CTCall *call) {
-        if ([[call callState] isEqual:CTCallStateConnected]) {
-            [recorder record];
-        } else if ([[call callState] isEqual:CTCallStateDisconnected]) {
-            [recorder stop];
-        }
-    }];
+
+    %orig();
+    //[Helper addRectange: 80 color: nil view: self.view];
 }
 
-- (void) viewDidDispose {
-    [Helper addRectange: 200 color: nil view: self.view];
+- (void) viewDidDisappear {
+    //[Helper addRectange: 200 color: nil view: self.view];
     [recorder stop];
+    %orig();
 }
 
 %end

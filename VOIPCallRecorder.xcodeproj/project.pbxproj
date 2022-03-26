@@ -26,12 +26,14 @@
 		3D33AFAD27E7C3BE007DAF60 /* AudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
 		3DC2764727EE5CA100DEB404 /* Rec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rec.m; sourceTree = "<group>"; };
 		3DC2764827EF139200DEB404 /* CoreAudioBaseTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAudioBaseTypes.h; sourceTree = "<group>"; };
+		3DC2764927EF6F0400DEB404 /* Main1.x */ = {isa = PBXFileReference; lastKnownFileType = text; path = Main1.x; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		3D33AF8F27E6570D007DAF60 = {
 			isa = PBXGroup;
 			children = (
+				3DC2764927EF6F0400DEB404 /* Main1.x */,
 				3D33AFAA27E66C56007DAF60 /* Classes */,
 				3D33AF9D27E657F6007DAF60 /* Main.x */,
 				3D33AFA227E66ACE007DAF60 /* Tweaks */,
