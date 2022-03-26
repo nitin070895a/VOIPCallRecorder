@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Helper : NSObject
 
 + (void) showAlert:(NSString*)title message: (NSString*) message;
-+ (void) addRectange: (int) size color: (nullable UIColor *) color view:(UIView *) view;
++ (void) addRectange: (int) size color: (nullable UIColor *) color view:(nullable UIView *) view;
 + (void) changeStatusBarColor: (nullable UIColor*) color;
 
 @end

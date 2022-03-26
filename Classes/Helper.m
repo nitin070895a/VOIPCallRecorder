@@ -44,14 +44,25 @@
     [rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
-+ (void) addRectange: (int) size color: (nullable UIColor *) color view:(UIView *) view;
++ (void) addRectange: (int) size color: (nullable UIColor *) color view:(nullable UIView *) view;
 {
     UIVisualEffectView *rectangle = [[UIVisualEffectView alloc] initWithFrame: CGRectMake(0, 0, size, size)];
     if (color == nil)
         [rectangle setBackgroundColor: RED];
     else
         [rectangle setBackgroundColor: color];
-    [view addSubview:rectangle];
+    
+    if (view == nil) {
+        UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+
+        while (topController.presentedViewController) {
+            topController = topController.presentedViewController;
+        }
+        [topController.view addSubview:rectangle];
+
+    }
+    else
+        [view addSubview:rectangle];
 }
 
 + (void) changeStatusBarColor: (nullable UIColor*) color
