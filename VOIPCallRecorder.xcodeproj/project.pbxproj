@@ -24,6 +24,8 @@
 		3D33AFAB27E671B0007DAF60 /* Recorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recorder.m; sourceTree = "<group>"; };
 		3D33AFAC27E7C3BE007DAF60 /* AudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioRecorder.h; sourceTree = "<group>"; };
 		3D33AFAD27E7C3BE007DAF60 /* AudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
+		3DC2764727EE5CA100DEB404 /* Rec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rec.m; sourceTree = "<group>"; };
+		3DC2764827EF139200DEB404 /* CoreAudioBaseTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAudioBaseTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -57,11 +59,13 @@
 		3D33AFAA27E66C56007DAF60 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3DC2764827EF139200DEB404 /* CoreAudioBaseTypes.h */,
 				3D33AF9E27E658F6007DAF60 /* Helper.h */,
 				3D33AF9F27E658F6007DAF60 /* Helper.m */,
 				3D33AFAB27E671B0007DAF60 /* Recorder.m */,
 				3D33AFAC27E7C3BE007DAF60 /* AudioRecorder.h */,
 				3D33AFAD27E7C3BE007DAF60 /* AudioRecorder.m */,
+				3DC2764727EE5CA100DEB404 /* Rec.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

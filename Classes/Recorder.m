@@ -6,9 +6,32 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreAudio/CoreAudioTypes.h>
+//#import <CoreAudioTypes/CoreAudioBaseTypes.h>
+//#import <CoreAudio/CoreAudioTypes.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <libkern/OSAtomic.h>
+#import "substrate.h"
+
+#if defined(__cplusplus)
+static inline void  FillOutASBDForLPCM(
+    AudioStreamBasicDescription& outASBD,
+    Float64 inSampleRate,
+    UInt32 inChannelsPerFrame,
+    UInt32 inValidBitsPerChannel,
+    UInt32 inTotalBitsPerChannel,
+    bool inIsFloat,
+    bool inIsBigEndian,
+    bool inIsNonInterleaved = false
+) {
+    outASBD.mSampleRate = inSampleRate;
+    outASBD.mFormatID = kAudioFormatLinearPCM;
+    outASBD.mFormatFlags = CalculateLPCMFlags(inValidBitsPerChannel, inTotalBitsPerChannel, inIsFloat, inIsBigEndian, inIsNonInterleaved);
+    outASBD.mBytesPerPacket = (inIsNonInterleaved ? 1 : inChannelsPerFrame) * (inTotalBitsPerChannel / 8);
+    outASBD.mFramesPerPacket = 1;
+    outASBD.mBytesPerFrame = (inIsNonInterleaved ? 1 : inChannelsPerFrame) * (inTotalBitsPerChannel / 8);
+    outASBD.mChannelsPerFrame = inChannelsPerFrame; outASBD.mBitsPerChannel = inValidBitsPerChannel;
+}
+#endif
 
 //CoreTelephony.framework
 CFStringRef const kCTCallStatusChangeNotification;
@@ -60,7 +83,25 @@ void Convert()
     int sampleSize = inputFormat.mBytesPerFrame;
 
     //Filling input stream format for output file (stereo LPCM)
-    FillOutASBDForLPCM(inputFormat, inputFormat.mSampleRate, 2, inputFormat.mBitsPerChannel, inputFormat.mBitsPerChannel, true, false);
+    //FillOutASBDForLPCM(inputFormat, inputFormat.mSampleRate, 2, inputFormat.mBitsPerChannel, inputFormat.mBitsPerChannel, true, false);
+    
+    Float64 inSampleRate = inputFormat.mSampleRate;
+    UInt32 inChannelsPerFrame = 2;
+    UInt32 inValidBitsPerChannel = inputFormat.mBitsPerChannel;
+    UInt32 inTotalBitsPerChannel = inputFormat.mBitsPerChannel;
+    bool inIsFloat = true;
+    bool inIsBigEndian = false;
+    bool inIsNonInterleaved = false;
+    
+    inputFormat.mSampleRate = inSampleRate;
+    inputFormat.mFormatID = kAudioFormatLinearPCM;
+    //inputFormat.mFormatFlags = CalculateLPCMFlags(inValidBitsPerChannel, inTotalBitsPerChannel, inIsFloat, inIsBigEndian, inIsNonInterleaved);
+    inputFormat.mFormatFlags = (inIsFloat ? kAudioFormatFlagIsFloat : kAudioFormatFlagIsSignedInteger) | (inIsBigEndian ? ((UInt32)kAudioFormatFlagIsBigEndian) : 0) | ((inValidBitsPerChannel == inTotalBitsPerChannel) ? kAudioFormatFlagIsPacked : kAudioFormatFlagIsAlignedHigh) | (inIsNonInterleaved ? ((UInt32)kAudioFormatFlagIsNonInterleaved) : 0);
+    inputFormat.mBytesPerPacket = (inIsNonInterleaved ? 1 : inChannelsPerFrame) * (inTotalBitsPerChannel / 8);
+    inputFormat.mFramesPerPacket = 1;
+    inputFormat.mBytesPerFrame = (inIsNonInterleaved ? 1 : inChannelsPerFrame) * (inTotalBitsPerChannel / 8);
+    inputFormat.mChannelsPerFrame = inChannelsPerFrame; inputFormat.mBitsPerChannel = inValidBitsPerChannel;
+    
 
     //Filling output file audio format (AAC)
     memset(&outputFormat, 0, sizeof(outputFormat));
@@ -189,6 +230,7 @@ void CoreTelephonyNotificationCallback(CFNotificationCenterRef center, void *obs
 }
 
 OSStatus(*AudioUnitProcess_orig)(AudioUnit unit, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inNumberFrames, AudioBufferList *ioData);
+
 OSStatus AudioUnitProcess_hook(AudioUnit unit, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inNumberFrames, AudioBufferList *ioData)
 {
     OSSpinLockLock(&phoneCallIsActiveLock);
@@ -257,11 +299,11 @@ OSStatus AudioUnitProcess_hook(AudioUnit unit, AudioUnitRenderActionFlags *ioAct
     return AudioUnitProcess_orig(unit, ioActionFlags, inTimeStamp, inNumberFrames, ioData);
 }
 
-__attribute__((constructor))
-static void initialize()
-{
-    CTTelephonyCenterAddObserver(CTTelephonyCenterGetDefault(), NULL, CoreTelephonyNotificationCallback, NULL, NULL, CFNotificationSuspensionBehaviorHold);
-
-    //MSHookFunction(AudioUnitProcess, AudioUnitProcess_hook, &AudioUnitProcess_orig);
-}
+//__attribute__((constructor))
+//static void initialize()
+//{
+//    CTTelephonyCenterAddObserver(CTTelephonyCenterGetDefault(), NULL, CoreTelephonyNotificationCallback, NULL, NULL, CFNotificationSuspensionBehaviorHold);
+//
+//    MSHookFunction(AudioUnitProcess, AudioUnitProcess_hook, &AudioUnitProcess_orig);
+//}
 
