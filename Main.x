@@ -19,18 +19,19 @@ AudioRecorder* recorder;
         return;
     }
     
-    [recorder prepare];
-    [recorder record];
     
-
     %orig();
-    //[Helper addRectange: 80 color: nil view: self.view];
+        
+    //[recorder prepare];
+    [recorder hearCallEvents];
+    //[Helper addRectange: 50 color: nil view: self.view];
 }
 
-- (void) viewDidDisappear {
+
+//- (void) viewDidDisappear {
     //[Helper addRectange: 200 color: nil view: self.view];
-    [recorder stop];
-    %orig();
-}
+    //[recorder stop];
+    //%orig();
+//}
 
 %end

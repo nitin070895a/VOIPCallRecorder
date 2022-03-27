@@ -31,17 +31,9 @@
     ];
 
     [alert addAction:defaultAction];
-    
-    id rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    if([rootViewController isKindOfClass:[UINavigationController class]])
-    {
-        rootViewController = ((UINavigationController *)rootViewController).viewControllers.firstObject;
-    }
-    if([rootViewController isKindOfClass:[UITabBarController class]])
-    {
-        rootViewController = ((UITabBarController *)rootViewController).selectedViewController;
-    }
-    [rootViewController presentViewController:alert animated:YES completion:nil];
+       
+    [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:alert animated:YES completion:nil];
+
 }
 
 + (void) addRectange: (int) size color: (nullable UIColor *) color view:(nullable UIView *) view;

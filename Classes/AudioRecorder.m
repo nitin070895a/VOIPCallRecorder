@@ -7,27 +7,30 @@
 
 #import "AudioRecorder.h"
 
-static BOOL isRecordingB = NO;
+static BOOL isRec = NO;
 
 @implementation AudioRecorder
 
 - (void) record
 {
-    if (isRecordingB == NO) {
+    if (isRec == NO)
+    {
         [_audioRecorder record];
-        isRecordingB = YES;
+        NSLog(@"NitinLog Recording started");
+        isRec = YES;
     }
 }
 
 - (void) stop
 {
     [_audioRecorder stop];
-    isRecordingB = NO;
+    NSLog(@"NitinLog Recording stopped");
+    isRec = NO;
 }
 
 - (BOOL) isRecording
 {
-    return isRecordingB;
+    return isRec;
 }
 
 - (void) hearCallEvents
@@ -38,13 +41,24 @@ static BOOL isRecordingB = NO;
 }
 
 - (void)callObserver:(CXCallObserver *)callObserver callChanged:(CXCall *)call {
-    [Helper addRectange: 50 color: nil view: [UIApplication sharedApplication].delegate.window.rootViewController.view];
-    if (call.hasConnected) {
-        [Helper addRectange: 100 color: nil view: [UIApplication sharedApplication].delegate.window.rootViewController.view];
-        [self record];
-    } else if(call.hasEnded) {
-        [Helper addRectange: 200 color: nil view: [UIApplication sharedApplication].delegate.window.rootViewController.view];
+    NSLog(@"NitinLog OnStatusChanged %@", call);
+    
+    if (call.hasEnded == YES) {
+        NSLog(@"NitinLog Disconnected");
+        //[Helper addRectange: 100 color: RED view: nil];
         [self stop];
+    }
+    if (call.isOutgoing == YES && call.hasConnected == NO) {
+        NSLog(@"NitinLog Dialing");
+    }
+    if (call.isOutgoing == NO && call.hasConnected == NO && call.hasEnded == NO) {
+        NSLog(@"NitinLog Incoming");
+    }
+    if (call.hasConnected == YES && call.hasEnded == NO) {
+        NSLog(@"NitinLog Connected");
+        //[Helper addRectange: 100 color: GREEN view: nil];
+        [self prepare];
+        [self record];
     }
 }
 
@@ -86,11 +100,11 @@ static BOOL isRecordingB = NO;
 
      if (error)
      {
-           NSLog(@"error: %@", [error localizedDescription]);
+           NSLog(@"NitinLog error: %@", [error localizedDescription]);
      } else {
-           [_audioRecorder prepareToRecord];
+         [_audioRecorder prepareToRecord];
+         NSLog(@"NitinLog Prepared for recording");
      }
 }
-
 
 @end
